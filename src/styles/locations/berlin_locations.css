@@ -1,0 +1,406 @@
+body{
+  background-color: black;
+  padding-top: 40px;
+  }
+  
+  .gridbox2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+    grid-template-rows: repeat(4, 200px); /* 4 Reihen, jede mit einer festen Höhe */
+    gap: 20px; /* Abstand zwischen den Grid-Elementen */
+    margin-top: 100px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 150px;
+    width: calc(100% - 30px);
+    margin: 200px 15px 100px;
+  }
+  
+  .grid2 {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #fff; /* Optional: Rahmen für jedes Grid-Element */
+  }
+  
+  .bild {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.2s, box-shadow 0.2s;
+     
+    border: none;
+    box-shadow: 0 5px #000000;
+    z-index: 1;
+  }
+  
+  .bild:hover {
+    filter: contrast();
+    box-shadow: 0 2px #000000;
+    transform: translateY(3px);
+  }
+  
+  .stores {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+  
+  .rating {
+    display: flex;
+    direction: rtl; /* Die Sterne von rechts nach links anzeigen */
+    unicode-bidi: bidi-override; /* Damit die Sterne richtig sortiert werden */
+    margin-top: 5px;
+  }
+  
+  .star {
+    cursor: pointer;
+    color: lightgray; /* Standardfarbe der Sterne */
+    font-size: 24px;
+    margin-left: 5px;
+    transition: color 0.2s ease-in-out; /* Weicher Übergang bei Farbänderung */
+    z-index: 3; /* Sicherstellen, dass die Sterne über anderen Elementen liegen */
+  }
+  
+  /* Hover-Effekt für Sterne */
+  .star:hover,
+  .star:hover ~ .star {
+    color: gold; /* Farbe bei Hover */
+  }
+  
+  /* Wenn ein Stern ausgewählt ist, bleibt er und alle davor gold */
+  .star.selected,
+  .star.selected ~ .star {
+    color: gold;
+  }
+  
+  .overlay-text {
+    margin-left: 10px;
+    position: absolute;
+    top: 50%; /* Vertikale Zentrierung */
+    left: 50%; /* Horizontale Zentrierung */
+    transform: translate(-50%, -50%); /* Verschiebt den Text genau in die Mitte */
+    color: white; /* Textfarbe */
+    font-size: 2em; /* Textgröße anpassen */
+    font-family: 'Bebas Neue', sans-serif; /* Schriftart */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Optionaler Schatteneffekt für bessere Lesbarkeit */
+    text-align: start; /* Zentriert den Text horizontal */
+    width: 100%; /* Damit der Text zentriert wird */
+  }
+  
+  .header{
+   background-color: #000000;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    z-index:10;
+    top: 0;
+    width: 100%;
+    font-family: "Bebas Neue", sans-serif;
+  }
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
+  
+  .home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    animation: rotate 5s linear infinite; /* Animation hinzufügen */
+  }
+  
+  .home-button img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  
+  .button {
+    cursor: pointer;
+    border: none;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+    border-radius: 10px;
+    height: 70px;
+    width: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 50px;
+  }
+  
+  .rechts{
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    display: flex;
+    flex-direction: row;
+    width: 170px;
+  }
+  
+  .mitte{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+    color: white;
+  }
+  
+  .footer3-container {
+    display: flex;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(86,9,121,0.91) 23%, rgba(0,212,255,1) 100%);
+    justify-content: space-around;
+    align-items: center;
+   margin-top: -200px;
+    height: 300px;
+    padding: 20px;  
+    width: 100%;
+    }
+    
+    
+  .company-container,
+  .office-container,
+  .links-container {
+    padding-left: 150px;  
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    color: rgb(234, 203, 203);
+    font-family: "Hanken Grotesk", sans-serif;
+    height: 100%;  
+    width: 300px;  
+    margin: 0 10px;  
+  }
+  
+  .newsletter-container{
+    padding-right: 0px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    color: white;
+    font-family: "Hanken Grotesk", sans-serif;
+    height: 100%; 
+    width: 300px; 
+    margin: 0 10px; 
+  }
+  
+  .footer-button-container {
+    display: flex;
+    justify-content: space-around;
+  
+    align-items: center;
+    width: 280px;
+    
+  }
+  
+  .footer-button {
+    
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;  
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000; 
+    border: none;  
+    cursor: pointer;
+  }
+  
+  .footer-bild {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+  }
+  .office{
+    margin-bottom: 15px;
+    font-family: "Hanken Grotesk", sans-serif;
+    text-decoration: underline;
+  }
+  
+  .info-footer{ 
+    font-family: "Hanken Grotesk", sans-serif;
+  }
+  
+  
+  
+  .link-group {
+    list-style-type: none;  
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    flex-direction: column;
+    gap: 15px;  }
+  
+  .link-group a {
+    text-decoration: none;  
+    color: #f4f9ff;  
+  }
+  
+  .link-group a:hover {
+    color: #0056b3; 
+  }
+  
+  
+  .email-input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    background-color: #000000; 
+    border-radius: 5px;
+    padding: 5px;
+    max-width: 300px; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .email-icon {
+    color: white; 
+    padding: 0 10px;
+    font-size: 18px; 
+  }
+  
+  .email-input {
+    border: none;
+    background: none;
+    color: white; 
+    outline: none;
+    flex: 1;
+    padding: 5px 10px; 
+  }
+  
+  .email-input::placeholder {
+    color: #cccccc; 
+  }
+  
+  .submit-arrow {
+    color: white;  
+    padding: 0 10px;
+    font-size: 18px;  
+    cursor: pointer;  
+  }
+  
+  .submit-arrow:hover {
+    color: #f1c40f; 
+  }
+  
+  /* Modal */
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding-top: 60px;
+    opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .modal-text {
+    margin-top: 20px;
+  }
+  
+  
+  /* Fülle den gesamten Bildschirm */
+  #preloader {
+   
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgb(9, 14, 23); /* Hintergrundfarbe während des Preloaders */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Sicherstellen, dass es über allem anderen liegt */
+  }
+  
+  /* Stilisierung des Bildes, um es über den gesamten Bildschirm zu strecken */
+  #preloader-image {
+   
+    width: auto;
+    height: auto;
+    object-fit: cover; /* Bild wird gestreckt, um den gesamten Container auszufüllen */
+    animation: slideUp 1s ease-in-out forwards;
+    animation-delay: 1s; /* Verzögerung der Animation, damit das Bild kurz angezeigt wird */
+  }
+  
+.modal.show {
+  display: block;
+  opacity: 1;
+}
+  /* Animation, um das Bild nach oben zu verschieben und zu verbergen */
+  @keyframes slideUp {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+  
+   

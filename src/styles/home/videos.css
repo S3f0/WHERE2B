@@ -1,0 +1,63 @@
+.container-right {
+  z-index: -2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%; /* Verwende Prozentangaben für flexible Breiten */
+  max-width: 810px;
+  position: absolute;
+  height: auto; /* Passe die Höhe automatisch an den Inhalt an */
+  left: 70%;
+  top: 25vh; /* Abhängig von der Ansichtshöhe */
+  transform: translateX(-50%); /* Zentriere horizontal */
+}
+
+.row1, .row3 {
+  display: flex; 
+  justify-content: flex-start; /* Videos werden von links nach rechts angeordnet */
+  flex-wrap: wrap; /* Videos umbrechen auf kleinere Bildschirme */
+  gap: 20px;  
+  height: auto; /* Höhe an den Inhalt anpassen */
+  margin-left: 150px; /* Zentriert die Reihen horizontal */
+  margin-right: auto; /* Zentriert die Reihen horizontal */
+  width: 100%; /* Nimmt die gesamte verfügbare Breite ein */
+  max-width: 810px; /* Maximale Breite wie der Container */
+  margin-bottom: 20px;
+  
+}
+
+.row2{
+  display: flex; 
+  justify-content: flex-start; /* Videos werden von links nach rechts angeordnet */
+  flex-wrap: wrap; /* Videos umbrechen auf kleinere Bildschirme */
+  gap: 20px;  
+  height: auto; /* Höhe an den Inhalt anpassen */
+  margin-right: auto; /* Zentriert die Reihen horizontal */
+  width: 100%; /* Nimmt die gesamte verfügbare Breite ein */
+  max-width: 810px; /* Maximale Breite wie der Container */
+  margin-bottom: 20px;
+}
+.video {
+  flex: 1 1 calc(33.33% - 20px); /* Drei Videos pro Reihe mit Abstand */
+  max-width: 200px; /* Maximale Breite für die Videos */
+  height: 100px; 
+  border-radius: 30px;  
+  overflow: hidden;
+  border: 5px solid black;  
+  object-fit: cover;  
+}
+
+@media screen and (max-width: 768px) {
+  .video {
+    flex: 1 1 calc(50% - 20px); /* Zwei Videos pro Reihe auf kleineren Bildschirmen */
+    max-width: 150px; /* Kleinere Videos auf kleineren Bildschirmen */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .video {
+    flex: 1 1 100%; /* Ein Video pro Reihe auf sehr kleinen Bildschirmen */
+    max-width: 100%; /* Volle Breite auf kleinen Bildschirmen */
+  }
+}

@@ -1,0 +1,66 @@
+.container-left{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: flex-start;
+  height: 400px;
+  width: 500px;
+  margin-left: 160px;
+  position: relative;
+  top: 220px;
+  font-family: "Bebas Neue", sans-serif;
+ 
+}
+.headline{
+  margin-top: -74px;
+  font-size: 60px;
+  color: white;
+
+}
+
+.discribtion{
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+
+  margin-top: -74px;
+  color: rgb(126, 118, 118);
+}
+
+.buttons{
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  width:500px;
+  height: 60px;
+  
+  gap: 50px;
+  
+  
+}
+
+.start{
+  background-color: greenyellow;
+  width: 150px;
+  height: 40px;
+  font-family: "Bebas Neue", sans-serif ;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+  .registrieren {
+     
+    
+      background-color: gray;
+      width: 150px;
+      height: 40px;
+      font-family: "Bebas Neue", sans-serif ;
+      font-size: 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-block;
+}
+
