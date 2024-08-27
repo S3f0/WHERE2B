@@ -1,26 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Stadt() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({});
-  const [preloaderVisible, setPreloaderVisible] = useState(true);
-
-  useEffect(() => {
-    const handleLoad = () => {
-      const animationDuration = 1500;
-      setTimeout(() => {
-        setPreloaderVisible(false);
-      }, animationDuration);
-    };
-
-    window.addEventListener('load', handleLoad);
-    return () => window.removeEventListener('load', handleLoad);
-  }, []);
 
   const openModal = (e) => {
     const imageElement = e.target;
-  
+
     if (imageElement && imageElement.tagName === 'IMG') {
       setModalContent({
         src: imageElement.src,
@@ -44,7 +31,7 @@ export default function Stadt() {
         <div className="header">
           <div className="linkeseite">
             <div className="button-container">
-              <Link to="/logged_in">
+              <Link to="/">
                 <button className="home-button">
                   <img
                     className="logo"
@@ -75,13 +62,7 @@ export default function Stadt() {
         </div>
       </header>
 
-      {preloaderVisible && (
-        <div id="preloader">
-          <img src="/assets/img/locations/loader.jpeg" alt="Loading" id="preloader-image" />
-        </div>
-      )}
-
-      <div id="content" style={{ display: preloaderVisible ? 'none' : 'block' }}>
+      <div id="content">
         <div className="gridbox2">
           {/* Goldies */}
           <div className="grid2">
@@ -177,10 +158,8 @@ export default function Stadt() {
 
           {/* Weitere Grid-Items ... */}
 
-
-
-                    {/* Damn-Dog */}
-                    <div className="grid2">
+          {/* Damn-Dog */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/damn-dog.png"
@@ -202,8 +181,8 @@ export default function Stadt() {
             </div>
           </div>
 
-                    {/* Brekkies */}
-                    <div className="grid2">
+          {/* Brekkies */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/brekkies.jpg"
@@ -225,8 +204,8 @@ export default function Stadt() {
             </div>
           </div>
 
-                    {/* Söner */}
-                    <div className="grid2">
+          {/* Söner */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/söner.jpg"
@@ -248,8 +227,8 @@ export default function Stadt() {
             </div>
           </div>
 
-                    {/* 893 */}
-                    <div className="grid2">
+          {/* 893 */}
+          <div className="grid2">
             <img
               className="bild"
               src="assets/img/locations/893.jpg"
@@ -260,8 +239,7 @@ export default function Stadt() {
               onClick={openModal}
             />
             <div className="stores">
-              <div className="overlay-text">893 
-              Ryōtei</div>
+              <div className="overlay-text">893 Ryōtei</div>
               <div className="rating">
                 <span className="star">&#9733;</span>
                 <span className="star">&#9733;</span>
@@ -271,13 +249,13 @@ export default function Stadt() {
               </div>
             </div>
           </div>
-          
-                    {/* Malafemmena */}
-                    <div className="grid2">
+
+          {/* Malafemmena */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/malafemmena.png"
-              data-name="Malafemmwna"
+              data-name="Malafemmena"
               data-description="Eine kurze Beschreibung von Damn-Dog, z.B. das beste Fast Food in der Stadt."
               data-address="Malafemmena, Berlin, Germany"
               alt="893"
@@ -295,8 +273,8 @@ export default function Stadt() {
             </div>
           </div>
 
-                              {/* Magic-Johns */}
-                              <div className="grid2">
+          {/* Magic-Johns */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/magicjohns.png"
@@ -318,8 +296,8 @@ export default function Stadt() {
             </div>
           </div>
 
-                              {/* Baba Angora */}
-                              <div className="grid2">
+          {/* Baba Angora */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/baba.jpeg"
@@ -341,8 +319,8 @@ export default function Stadt() {
             </div>
           </div>
 
-                              {/* Poppy-Burger */}
-                              <div className="grid2">
+          {/* Poppy-Burger */}
+          <div className="grid2">
             <img
               className="bild"
               src="/assets/img/locations/poppy.png"
@@ -365,7 +343,6 @@ export default function Stadt() {
           </div>
         </div>
       </div>
-
 
       <footer>
         <div className="footer-container">
@@ -404,7 +381,7 @@ export default function Stadt() {
               <span className="submit-arrow">→</span>
             </div>
             <div className="footer-button-container">
-            <button className="footer-button">
+              <button className="footer-button">
                 <img className="footer-bild" src="/assets/img/instagram.png" alt="Instagram" />
               </button>
               <button className="footer-button">
@@ -420,8 +397,6 @@ export default function Stadt() {
           </div>
         </div>
       </footer>
-
-
 
       {/* Modal Struktur */}
       {isModalOpen && (

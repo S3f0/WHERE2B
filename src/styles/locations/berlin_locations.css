@@ -362,30 +362,7 @@ body{
   }
   
   
-  /* Fülle den gesamten Bildschirm */
-  #preloader {
-   
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color:rgb(9, 14, 23); /* Hintergrundfarbe während des Preloaders */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000; /* Sicherstellen, dass es über allem anderen liegt */
-  }
   
-  /* Stilisierung des Bildes, um es über den gesamten Bildschirm zu strecken */
-  #preloader-image {
-   
-    width: auto;
-    height: auto;
-    object-fit: cover; /* Bild wird gestreckt, um den gesamten Container auszufüllen */
-    animation: slideUp 1s ease-in-out forwards;
-    animation-delay: 1s; /* Verzögerung der Animation, damit das Bild kurz angezeigt wird */
-  }
   
 .modal.show {
   display: block;
