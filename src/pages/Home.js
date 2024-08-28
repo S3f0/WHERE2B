@@ -51,7 +51,7 @@ export default function Home() {
               <button className="start">Get Started ➜</button>
             </div>
             <div className="buttons-container2">
-              <Link to="/logged_out">
+              <Link to="/login">
                 <button className="registrieren">Anmelden</button>
               </Link>
             </div>

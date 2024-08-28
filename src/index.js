@@ -7,6 +7,7 @@ import './styles/home/videos.css';
 import './styles/städte/städte.css';
 import './styles/home/footer.css';
 import './styles/locations/berlin_locations.css';
+import './styles/Login/login.css';
 
 import App from './App';
 
