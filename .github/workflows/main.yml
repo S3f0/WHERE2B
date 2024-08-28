@@ -1,2 +1,41 @@
-- name: Run tests
-  run: npm test -- --passWithNoTests
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build the project
+      run: npm run build
+
+    - name: Run tests
+      run: npm test -- --passWithNoTests
+
+    - name: Deploy to ECS
+      if: github.ref == 'refs/heads/main'
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'eu-central-1'
+      run: |
+        aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
+        docker build -t where2b .
+        docker tag where2b:latest ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
+        docker push ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
+        ecs-deploy --service-name where2b-service --cluster where2b-cluster --image ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
