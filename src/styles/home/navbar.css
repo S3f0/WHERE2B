@@ -3,9 +3,13 @@ body {
   margin: 0; /* Entfernt Standardabstände */
  height: 900px;
  z-index: 1000;
+ background: url(/public/assets/img/login/foto.jpg) no-repeat;
+ background-size: cover;
+ background-position: center;
+}
  
 
-}
+ 
 
  
 .header {

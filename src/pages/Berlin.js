@@ -63,6 +63,7 @@ export default function Stadt() {
       </header>
 
       <div id="content">
+        
         <div className="gridbox2">
           {/* Goldies */}
           <div className="grid2">
