@@ -18,7 +18,7 @@ export default function Home() {
 
           <div className="mitte">
             <Link to="/stadt" className="food">Food</Link>
-            <div className="clubs">Clubbing</div>
+            <div className="clubs">Party</div>
             <div className="shisha">Shisha</div>
             <div className="unternehmungen">Ventures</div>
             <div className="konzerte">Concerts</div>
