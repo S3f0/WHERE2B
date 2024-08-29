@@ -32,11 +32,10 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
         AWS_REGION: 'eu-central-1'
       run: |
         aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
         docker build -t where2b .
-        docker tag where2b:latest ${{ secrets.AWS_ECR_REGISTRY }}:latest
-        docker push ${{ secrets.AWS_ECR_REGISTRY }}:latest
-        aws ecs update-service --cluster <Where2B_Cluster> --service <where2b_service> --force-new-deployment
+        docker tag where2b:latest ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
+        docker push ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
+        aws ecs update-service --cluster Where2B_Cluster --service where2b_service --force-new-deployment
