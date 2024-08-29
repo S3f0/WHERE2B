@@ -39,4 +39,4 @@ jobs:
         docker build -t where2b .
         docker tag where2b:latest ${{ secrets.AWS_ECR_REGISTRY }}:latest
         docker push ${{ secrets.AWS_ECR_REGISTRY }}:latest
-        aws ecs-deploy --service-name where2b-service --cluster where2b-cluster --image ${{ secrets.AWS_ECR_REGISTRY }}:latest
+        aws ecs update-service --cluster <Where2B_Cluster> --service <where2b_service> --force-new-deployment
