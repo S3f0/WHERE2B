@@ -37,6 +37,6 @@ jobs:
       run: |
         aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${{ secrets.AWS_ECR_REGISTRY }}
         docker build -t where2b .
-        docker tag where2b:latest ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
-        docker push ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
-        ecs-deploy --service-name where2b-service --cluster where2b-cluster --image ${{ secrets.AWS_ECR_REGISTRY }}/where2b:latest
+        docker tag where2b:latest ${{ secrets.AWS_ECR_REGISTRY }}:latest
+        docker push ${{ secrets.AWS_ECR_REGISTRY }}:latest
+        ecs-deploy --service-name where2b-service --cluster where2b-cluster --image ${{ secrets.AWS_ECR_REGISTRY }}:latest
